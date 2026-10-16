@@ -1,0 +1,10 @@
+{
+  "name": "zim-news-studio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Zimbabwe news classifier with local browser inference",
+  "scripts": {
+    "check": "node --check dist/app.js && node --check dist/model.js"
+  }
+}

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123d31">
+  <meta name="description" content="A thoughtful workspace for classifying Zimbabwean news. Add a headline and article, and find its place across six categories.">
+  <title>Zim News Studio — A place for every story</title>
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#workspace">Skip to workspace</a>
+  <svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 5l7 7-7 7"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9zM14 3v6h6M8 13h8M8 17h6"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 3 10 5-10 5L2 8zM2 12l10 5 10-5M2 16l10 5 10-5"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7h.01"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M20 3C8 2 2 9 6 16s16 2 14-13ZM4 21 15 10M9 16v-5M9 16h5"/></symbol>
+    <symbol id="i-politics" viewBox="0 0 24 24"><path d="m3 8 9-5 9 5M4 9h16M6 10v8M12 10v8M18 10v8M3 21h18M4 18h16"/></symbol>
+    <symbol id="i-music" viewBox="0 0 24 24"><path d="M9 18V5l11-2v13M9 8l11-2"/><ellipse cx="6" cy="18" rx="3" ry="3"/><ellipse cx="17" cy="16" rx="3" ry="3"/></symbol>
+    <symbol id="i-business" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V3h8v4M3 12c6 4 12 4 18 0M10 14h4"/></symbol>
+    <symbol id="i-tech" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4M10 10h4v4h-4z"/></symbol>
+    <symbol id="i-health" viewBox="0 0 24 24"><path d="M20.5 4.5a5.3 5.3 0 0 0-7.5 0L12 5.6l-1-1.1A5.3 5.3 0 0 0 3.5 12L12 21l8.5-9a5.3 5.3 0 0 0 0-7.5Z"/><path d="M5 12h4l2-4 2 8 2-4h4"/></symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 16V3M7 8l5-5 5 5M4 15v5a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-5"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V6a4 4 0 0 1 8 0v4M12 14v3"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h3"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+  </defs></svg>
+
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="#workspace" aria-label="Zim News Studio home"><span class="brand-mark">✳</span><span>Zim News<span class="brand-sub">STUDIO</span></span></a>
+    <div class="workspace-label">YOUR WORKSPACE</div>
+    <nav aria-label="Main navigation">
+      <a class="nav-item active" href="#workspace" data-view="workspace" aria-current="page"><svg class="icon"><use href="#i-grid"/></svg>Classifier<span class="nav-dot"></span></a>
+      <a class="nav-item" href="#categories" data-view="categories"><svg class="icon"><use href="#i-layers"/></svg>Categories<span class="nav-count">6</span></a>
+      <a class="nav-item" href="#about" data-view="about"><svg class="icon"><use href="#i-info"/></svg>About the model</a>
+    </nav>
+  </aside>
+
+  <div class="main-shell">
+    <header class="topbar"><div class="breadcrumb"><button class="menu-button icon-button" id="menu-button" aria-label="Toggle menu" aria-controls="sidebar" aria-expanded="false"><svg class="icon"><use href="#i-menu"/></svg></button><span>Workspace</span><span class="breadcrumb-divider">/</span><strong id="breadcrumb-current">Classifier</strong></div><div class="model-status" id="model-status" role="status" hidden></div></header>
+
+    <main id="workspace" tabindex="-1">
+      <section class="view" id="view-workspace" aria-labelledby="page-title">
+        <div class="hero"><div><div class="eyebrow"><span></span>THE ZIMBABWE NEWS CLASSIFIER</div><h1 id="page-title">Every story has its place.</h1><p>Bring the story. We’ll help you find the category.</p></div></div>
+
+        <div class="workspace-grid">
+          <section class="card editor-card" aria-labelledby="editor-title">
+            <div class="card-heading"><div><span class="section-number">01</span><h2 id="editor-title">The article</h2></div><span class="tiny-label">ENGLISH</span></div>
+            <form id="classify-form" novalidate>
+              <div class="field"><label for="headline">Headline <span>optional</span></label><input id="headline" name="headline" maxlength="400" placeholder="Give your story a headline…" autocomplete="off"></div>
+              <div class="field article-field"><div class="label-row"><label for="article">Article text</label><button class="text-button" type="button" id="paste-button"><svg class="icon"><use href="#i-copy"/></svg>Paste text</button></div><textarea id="article" name="article" maxlength="50000" placeholder="Paste your article here. A few sentences or the full story — either works.\n\nPolitics in Harare, a new album, the next harvest… what’s the story?" aria-describedby="article-hint form-error"></textarea><div class="editor-meta"><span id="word-count">0 words</span><span id="character-count">0 / 50,000 characters</span></div></div>
+              <div class="upload-row"><button class="upload-button" id="upload-button" type="button"><svg class="icon"><use href="#i-upload"/></svg>Upload a text file</button><input id="file-input" type="file" accept=".txt,.md,text/plain,text/markdown" hidden><span>.txt or .md</span><button class="text-button clear-button" id="clear-button" type="button">Clear</button></div>
+              <p id="article-hint" class="input-hint">A headline, an article, or both. Longer stories use the first 1,000 words.</p>
+              <p class="form-error" id="form-error" role="alert" hidden></p>
+              <button class="primary-button" id="classify-button" type="submit" disabled><span id="classify-button-label">Preparing classifier…</span><svg class="icon"><use href="#i-arrow"/></svg></button>
+              <div class="privacy-note"><svg class="icon"><use href="#i-lock"/></svg>Your article stays in your browser.</div>
+            </form>
+          </section>
+
+          <section class="card result-card" aria-labelledby="result-title" aria-live="polite" aria-atomic="false">
+            <div class="card-heading"><div><span class="section-number">02</span><h2 id="result-title">The result</h2></div><span id="result-state" class="tiny-label">AWAITING A STORY</span></div>
+            <div id="empty-result" class="empty-result"><div class="paper-scene" aria-hidden="true"><div class="paper paper-back"><span></span><span></span><span></span></div><div class="paper paper-front"><div class="paper-masthead">THE DAILY STORY</div><div class="paper-rule"></div><div class="paper-headline"></div><div class="paper-headline short"></div><div class="paper-columns"><div></div><div></div></div><div class="paper-seal"><svg class="icon"><use href="#i-check"/></svg></div></div><span class="scene-spark spark-one">✳</span><span class="scene-spark spark-two">+</span></div><h3>A little order for<br>your next big story.</h3><p>Add your text and we’ll find its best fit<br>among six news categories.</p><div class="empty-category-pills"><span>Politics</span><span>Business</span><span>Tech</span><span>+3 more</span></div></div>
+            <div id="result-content" class="result-content" hidden><div class="result-topline"><span class="overline">BEST MATCH</span><span class="processed-label"><svg class="icon"><use href="#i-check"/></svg>Classified</span></div><div class="result-category-row"><div><div class="category-symbol" id="category-symbol"><svg class="icon"><use href="#i-tech"/></svg></div><h3 id="predicted-category">Technology</h3><p id="category-description"></p></div><div class="score-ring"><svg viewBox="0 0 100 100" aria-hidden="true"><circle class="ring-track" cx="50" cy="50" r="43"/><circle id="ring-value" class="ring-value" cx="50" cy="50" r="43"/></svg><div><strong id="top-score">0<span>%</span></strong><span>model score</span></div></div></div><div class="score-heading"><h4>How the categories compare</h4><span>MODEL SCORES</span></div><div id="score-bars" class="score-bars"></div><p class="score-note"><svg class="icon"><use href="#i-info"/></svg>Scores show the model’s preference, not verified confidence.</p><div class="result-footer"><span id="processed-words"></span><button class="text-button" id="download-button" type="button"><svg class="icon"><use href="#i-upload"/></svg>Save result</button></div></div>
+          </section>
+        </div>
+
+        <section class="try-section" aria-labelledby="try-title"><div class="try-heading"><h2 id="try-title">Just looking around?</h2><p>Try a sample story.</p></div><div class="sample-buttons" id="sample-buttons"></div></section>
+        <section class="recent-section" id="recent-section" hidden><div class="recent-heading"><h2>Recent stories</h2><span>THIS SESSION ONLY</span></div><div id="recent-list" class="recent-list"></div></section>
+        <div class="workspace-footnote"><span><span class="footnote-dot"></span><strong data-article-count>35,382</strong> Zimbabwe-related articles</span><span>6 categories</span><span>One clearer view.</span></div>
+      </section>
+
+      <section class="view" id="view-categories" hidden aria-labelledby="categories-title"><div class="hero"><div><div class="eyebrow"><span></span>SIX WAYS TO SEE THE STORY</div><h1 id="categories-title">A place for every perspective.</h1><p>Explore the categories behind your next classification.</p></div></div><div class="category-grid" id="category-grid"></div><div class="quiet-callout"><svg class="icon"><use href="#i-info"/></svg><p>Stories can cross categories. The model chooses the strongest match among these six, even when a topic falls outside them.</p></div></section>
+
+      <section class="view" id="view-about" hidden aria-labelledby="about-title"><div class="hero"><div><div class="eyebrow"><span></span>A LITTLE CONTEXT</div><h1 id="about-title">Local stories. Thoughtful tools.</h1><p>A simple way to bring structure to Zimbabwean news.</p></div></div><div class="about-stats"><div><span>Stories in the dataset</span><strong data-article-count>35,382</strong></div><div><span>News categories</span><strong>6</strong></div><div><span>Held-out label agreement</span><strong id="accuracy-stat">—</strong></div></div><div class="about-grid"><section class="card about-card"><span class="overline">BEHIND THE CLASSIFIER</span><h2>The same model.<br>A more comfortable workspace.</h2><p>This workspace uses the classifier trained on your Zimbabwe news dataset. It reads the headline and article together, considers the first 1,000 words, and compares six categories.</p><p>Its predictions run directly in your browser. Your entered text is not sent to a prediction server, and recent stories disappear when you close or reload this tab.</p></section><section class="card about-card"><span class="overline">READ THE RESULTS WITH CONTEXT</span><h2>A helpful starting point.</h2><p>Training labels came from publisher sections and have not been independently reviewed. An article may fit more than one category, and a model score is not a guarantee.</p><p>The evaluation uses an 80/20 split of the dataset. Similar stories and publisher styles can affect results. It does not establish accuracy on every new story.</p><div class="about-source-note">Dataset sources include The Zimbabwean, Spiked, 263Chat, HealthTimes, TechnoMag, Open Parly and Zimbabwe Situation.</div></section></div></section>
+      <footer class="page-footer"><a href="#workspace">Zim News Studio <span>© 2026</span></a><span>Made with a local perspective.</span></footer>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status" hidden></div>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
